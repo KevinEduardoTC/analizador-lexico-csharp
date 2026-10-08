@@ -68,14 +68,14 @@ public final class MotorLexico {
                                 TokenLexico.SIMBOLO, linea, columna));
                         indice += longitudCaracter;
                         columna++;
-                    } else if (Character.isLetter(caracter)) {
+                    } else if (esLetra(caracter)) {
                         lineaToken = linea;
                         columnaToken = columna;
                         lexema.appendCodePoint(caracter);
                         estado = Estado.IDENTIFICADOR;
                         indice += longitudCaracter;
                         columna++;
-                    } else if (Character.isDigit(caracter) || caracter == '_') {
+                    } else if (esDigito(caracter) || caracter == '_') {
                         // Un identificador no puede comenzar con digito o '_'.
                         lineaToken = linea;
                         columnaToken = columna;
@@ -142,9 +142,21 @@ public final class MotorLexico {
                 || caracter == ')' || caracter == ';';
     }
 
+    /**
+     * L = letras ASCII [a-zA-Z]. No se usa Character.isLetter porque acepta
+     * cualquier letra Unicode (ñ, á, α...), que no forman parte del alfabeto.
+     */
+    private static boolean esLetra(int caracter) {
+        return (caracter >= 'a' && caracter <= 'z') || (caracter >= 'A' && caracter <= 'Z');
+    }
+
+    /** D = digitos ASCII [0-9]. Character.isDigit aceptaria digitos de otros alfabetos. */
+    private static boolean esDigito(int caracter) {
+        return caracter >= '0' && caracter <= '9';
+    }
+
     private static boolean esParteIdentificador(int caracter) {
-        return Character.isLetter(caracter) || Character.isDigit(caracter)
-                || caracter == '_';
+        return esLetra(caracter) || esDigito(caracter) || caracter == '_';
     }
 
     private static String clasificarPalabra(String palabra) {

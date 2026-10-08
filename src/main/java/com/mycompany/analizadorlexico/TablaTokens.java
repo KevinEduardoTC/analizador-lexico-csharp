@@ -17,7 +17,8 @@ import java.util.Map;
  *  - Si el motor léxico solo entrega el texto crudo del lexema -> usar clasificar(lexema).
  *  - Si el motor léxico ya entrega el tipo del token (recomendado, para no
  *    reclasificar) -> usar construirDesdeTipo(lexema, tipo), con tipo en
- *    {"PALABRA_RESERVADA", "SIMBOLO", "IDENTIFICADOR"}.
+ *    {"PALABRA_RESERVADA", "TIPO_DATO", "SIMBOLO", "IDENTIFICADOR", "ERROR"}
+ *    (los mismos valores que usa MotorLexico.TokenLexico).
  */
 public class TablaTokens {
 
@@ -67,11 +68,12 @@ public class TablaTokens {
      */
     public static Token construirDesdeTipo(String lexema, String tipo) {
         String patron = switch (tipo) {
-            case "PALABRA_RESERVADA" ->
+            case "PALABRA_RESERVADA", "TIPO_DATO" ->
                     PALABRAS_RESERVADAS.getOrDefault(lexema, "Palabra reservada " + lexema + ".");
             case "SIMBOLO" ->
                     SIMBOLOS.getOrDefault(lexema, "Símbolo.");
             case "IDENTIFICADOR" -> "Identificador.";
+            case "ERROR" -> "Error léxico: lexema no válido.";
             default -> "Patrón desconocido.";
         };
         return new Token(lexema, patron);
