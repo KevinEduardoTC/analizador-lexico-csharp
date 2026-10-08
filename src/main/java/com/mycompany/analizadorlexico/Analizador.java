@@ -65,7 +65,7 @@ public final class Analizador {
 
     private static String descripcionError(String lexema) {
         char c = lexema.charAt(0);
-        if (lexema.length() > 1 && (Character.isDigit(c) || c == '_')) {
+        if (Character.isDigit(c) || c == '_') {
             return " (un identificador debe empezar con una letra: L(L|_|D)*)";
         }
         return "";
