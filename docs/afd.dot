@@ -1,0 +1,19 @@
+digraph AFD {
+  rankdir=LR; dpi=200; bgcolor="white";
+  node [fontname="Helvetica", fontsize=12, shape=circle, width=1.1, fixedsize=true, style=filled, fillcolor="#F4F6FA", color="#2F3A4F", penwidth=1.4];
+  edge [fontname="Helvetica", fontsize=11, color="#2F3A4F", penwidth=1.2];
+  ini [shape=point, width=0.12, fillcolor="#2F3A4F"];
+  q0 [label="q0\ninicio"];
+  q1 [label="q1\nID", shape=doublecircle, fillcolor="#E3F1E6"];
+  q2 [label="q2\nsímbolo", shape=doublecircle, fillcolor="#E3F1E6"];
+  q3 [label="q3\nID inválido", shape=doublecircle, fillcolor="#F9E3E3", color="#9B2C2C"];
+  q4 [label="q4\ncarácter\ninválido", shape=doublecircle, fillcolor="#F9E3E3", color="#9B2C2C", width=1.1];
+  ini -> q0;
+  q0 -> q0 [label="espacio, \\t, \\n"];
+  q0 -> q1 [label="L"];
+  q1 -> q1 [label="L | D | _"];
+  q0 -> q2 [label="{  }  (  )  ;"];
+  q0 -> q3 [label="D | _"];
+  q0 -> q4 [label="otro"];
+  q3 -> q3 [label="L | D | _"];
+}
