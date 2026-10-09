@@ -1,5 +1,5 @@
 digraph AFD {
-  rankdir=LR; dpi=200; bgcolor="white";
+  rankdir=TB; nodesep=0.5; ranksep=0.9; dpi=200; bgcolor="white";
   node [fontname="Helvetica", fontsize=12, shape=circle, width=1.1, fixedsize=true, style=filled, fillcolor="#F4F6FA", color="#2F3A4F", penwidth=1.4];
   edge [fontname="Helvetica", fontsize=11, color="#2F3A4F", penwidth=1.2];
   ini [shape=point, width=0.12, fillcolor="#2F3A4F"];
