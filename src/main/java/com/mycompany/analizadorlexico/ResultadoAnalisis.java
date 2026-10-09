@@ -9,8 +9,8 @@ import java.util.List;
  */
 public final class ResultadoAnalisis {
 
-    public static final String[] COLUMNAS_TOKENS = {"Lexema", "Patrón"};
-    public static final String[] COLUMNAS_ATRIBUTOS = {"Accesibilidad", "Nombre", "Tipo"};
+    public static final String[] COLUMNAS_TOKENS = {"LEXEMA", "PATRÓN"};
+    public static final String[] COLUMNAS_ATRIBUTOS = {"ACCESIBILIDAD", "NOMBRE ATRIBUTO", "TIPO DATO"};
 
     private final List<TokenLexico> tokens;
     private final List<Token> tablaTokens;

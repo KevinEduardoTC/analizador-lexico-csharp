@@ -121,17 +121,17 @@ En `ejemplos/` hay tres archivos: una clase válida, una con errores léxicos y 
 
 ## Pruebas
 
-`PruebasAnalizador` no necesita JUnit. Tiene **62 casos** en 5 grupos:
+`PruebasAnalizador` no necesita JUnit. Tiene **63 casos** en 5 grupos:
 
 | Grupo | Casos | Qué cubre |
 |---|---|---|
-| 1. Clases válidas | 10 | ejemplo del enunciado, una sola línea, clase vacía, `\r\n`, `;` en vez de `{get;set;}`, solo `get`, `_` y dígitos internos, tabs |
+| 1. Clases válidas | 11 | ejemplo del enunciado (y su texto exacto del PDF), una sola línea, clase vacía, `\r\n`, `;` en vez de `{get;set;}`, solo `get`, `_` y dígitos internos, tabs |
 | 2. Identificadores inválidos | 11 | empieza con dígito o `_`, tildes, `ñ`, letras griegas, dígitos no ASCII, guion, solo dígitos |
 | 3. Caracteres no reconocidos | 5 | `#` `=` `[]` `.` comillas |
 | 4. Estructura inválida | 26 | falta `class`/nombre/llaves, tipos `float`/`bool`, sin modificador, `protected`, accesores mal escritos o repetidos, atributo duplicado, constructor con otro nombre, texto después de la clase, posición del error |
 | 5. Tabla de tokens | 10 | descripciones de cada patrón, errores en la tabla, línea y columna, filas para JTable |
 
-Resultado actual: **62/62 aprobadas.**
+Resultado actual: **63/63 aprobadas.**
 Corridas contra las versiones originales de los módulos, fallan 7 (ver historial de cambios).
 
 ## Historial de cambios de integración
@@ -144,11 +144,12 @@ Los módulos se subieron primero **tal como se entregaron** (primer commit) y lo
 - **AnalizadorLexico** (consola): ahora usa todo el flujo integrado y lee el texto completo (antes solo leía una línea).
 - `Main.java` de Diego (prueba con lista fija de tokens) no se incluyó: lo cubre la batería de pruebas.
 
-## Decisiones pendientes de confirmar con el enunciado
+## Decisiones de diseño
 
-- Si `L` debe ser solo `[a-zA-Z]` (implementado así) o si se aceptan letras con tilde y `ñ`.
-- Si los atributos con `;` (sin `{get;set;}`) deben aceptarse (implementado: sí).
-- Si con errores léxicos se debe intentar mostrar el nombre y los atributos (implementado: no).
+- `L = {a-z, A-Z}` y `D = {0-9}`, como define el enunciado: `ñ`, letras con tilde y dígitos no ASCII son error léxico.
+- Se aceptan atributos con `{ get; set; }` (como en el enunciado), solo `{ get; }` / `{ set; }`, o terminados en `;`.
+- Si hay errores léxicos se muestra la tabla de tokens completa, pero no se determina el nombre ni los atributos.
+- Las columnas de las tablas usan los encabezados del enunciado: `LEXEMA | PATRÓN` y `ACCESIBILIDAD | NOMBRE ATRIBUTO | TIPO DATO`.
 
 ## Fechas
 

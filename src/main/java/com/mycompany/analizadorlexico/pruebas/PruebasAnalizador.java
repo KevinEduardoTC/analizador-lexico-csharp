@@ -91,6 +91,26 @@ public final class PruebasAnalizador {
 
         verificarValida("V09 'Class' con mayúscula como nombre (C# distingue mayúsculas)",
                 Analizador.analizar("class Class { }"), "Class");
+
+        // Copiado tal cual del PDF del enunciado (formato y espacios incluidos).
+        String textoEnunciado = """
+                class NombreClase {
+
+                    private string nombre_atributo { get; set;}
+                    public int nombre_atributo_1 { get; set;}
+                    private decimal nombre_atributo_2 { get; set;}
+
+                    public NombreClase(){
+
+                    }
+
+                }
+                """;
+        verificarValida("V10 texto exacto del PDF del enunciado", Analizador.analizar(textoEnunciado),
+                "NombreClase",
+                atr("Privado", "nombre_atributo", "Texto"),
+                atr("Público", "nombre_atributo_1", "Entero"),
+                atr("Privado", "nombre_atributo_2", "Decimal"));
     }
 
     // ------------------------------------------------------------------

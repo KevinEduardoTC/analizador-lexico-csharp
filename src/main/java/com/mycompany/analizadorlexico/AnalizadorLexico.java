@@ -52,7 +52,7 @@ public class AnalizadorLexico {
                 + (r.getNombreClase() != null ? r.getNombreClase() : "(no determinado)"));
 
         System.out.println("\nTABLA DE ATRIBUTOS");
-        System.out.printf("%-14s | %-25s | %s%n", "ACCESIBILIDAD", "NOMBRE", "TIPO");
+        System.out.printf("%-14s | %-25s | %s%n", "ACCESIBILIDAD", "NOMBRE ATRIBUTO", "TIPO DATO");
         for (Atributo a : r.getAtributos()) {
             System.out.printf("%-14s | %-25s | %s%n", a.getAccesibilidad(), a.getNombre(), a.getTipo());
         }
