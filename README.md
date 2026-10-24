@@ -15,7 +15,7 @@ El programa lee la definición de una clase en C# y, al presionar **Analizar**, 
 | Alex Jose Enrique Rodriguez Portillo | Motor léxico (autómata) | `MotorLexico.java` |
 | Diego Andres Pirir Rosil | Tabla de tokens | `Token.java`, `TablaTokens.java` |
 | Jose Andres Morales Culajay | Nombre de clase y tabla de atributos | `AnalizadorClase.java`, `Atributo.java` |
-| Julio Javier Ramírez Xicón | Interfaz gráfica (GUI) | *pendiente* |
+| Julio Javier Ramírez Xicón | Interfaz gráfica (GUI) | VentanaPrincipal.java. |
 | Kevin Eduardo Tzoc Castro | Integración, pruebas y documentación | `Analizador.java`, `ResultadoAnalisis.java`, `pruebas/`, README |
 
 ## Lenguaje reconocido
