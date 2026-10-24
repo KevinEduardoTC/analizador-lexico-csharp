@@ -13,6 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Java 17 o superior (se usan switch con flechas y Map.ofEntries). -->
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.mycompany.analizadorlexico.AnalizadorLexico</exec.mainClass>
+        <exec.mainClass>com.mycompany.analizadorlexico.VentanaPrincipal</exec.mainClass>
     </properties>
 </project>
